@@ -1,0 +1,11 @@
+#users-in {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 1em;
+}
+
+#users-in h4 {
+    margin: 0;
+    margin-bottom: 1em;
+}
