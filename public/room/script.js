@@ -1,6 +1,6 @@
 const ws = new WebSocket('ws://localhost:1235');
 const sesId = document.currentScript.getAttribute('sesId');
-const roomName = document.currentScript.getAttribute('roomName').split('%20').join(' ');
+const roomName = document.currentScript.getAttribute('roomName');
 
 const board = document.getElementById('board');
 const message = document.getElementById('msg');

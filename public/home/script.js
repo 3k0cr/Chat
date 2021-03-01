@@ -1,5 +1,5 @@
 const username = document.currentScript.getAttribute('username');
-const ownedRooms = JSON.parse(document.currentScript.getAttribute('ownedRooms').split('%20').join(' '));
+const ownedRooms = JSON.parse(document.currentScript.getAttribute('ownedRooms'));
 const status = document.getElementById('status');
 const ownedRoomsList = document.querySelector('#rooms ul');
 

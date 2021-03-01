@@ -19,7 +19,7 @@ function home(session){
         
         <script src="./home/script.js" 
         username="${session.username}" 
-        ownedRooms=${JSON.stringify(user.rooms).split(' ').join('%20')} 
+        ownedRooms='${JSON.stringify(user.rooms)}'
         defer></script>
 
         <link rel="stylesheet" href="./home/styles.css">
@@ -59,7 +59,7 @@ function room(session, query){
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="./room/script.js" sesId=${session.sesId} roomName=${roomName.split(' ').join('%20')} defer></script>
+        <script src="./room/script.js" sesId=${session.sesId} roomName="${roomName}" defer></script>
         <link rel="stylesheet" href="./room/styles.css">
         <title>Room: ${roomName}</title>
     </head>
