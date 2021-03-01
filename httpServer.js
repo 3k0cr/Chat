@@ -1,4 +1,5 @@
 const http = require('http');
+const config = require('./config.json');
 const loadUResource = require('./resource/unprotected.js');
 const loadPResource = require('./resource/protected.js');
 const signUp = require('./auth/signUp.js');
@@ -28,5 +29,5 @@ module.exports = http.createServer((req, res) => {
         else loadUResource(req, res, './public' + req.url);
     }
     
-}).listen(process.env.PORT || 1234);
+}).listen(process.env.PORT || config.HTTP_PREFERRED_PORT);
 

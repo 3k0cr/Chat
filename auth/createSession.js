@@ -1,11 +1,6 @@
 const uuid = require('uuid');
 const sessions = require('../data/sessions.js');
-
-/*
-    12 hour sessions.
-    Trying to find a good balance between security and user annoyance.
-*/
-const EXPIRES_IN = 720;
+const EXPIRES_IN = require('../config.json').SESSION_EXPIRE_IN;
 
 module.exports = function(username){
     const sesId = uuid.v4();

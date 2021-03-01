@@ -1,0 +1,6 @@
+{
+    "WS_URL": "ws://localhost:1235",
+    "WS_PREFERRED_PORT": 1235,
+    "HTTP_PREFERRED_PORT": 1234,
+    "SESSION_EXPIRE_IN": 270
+}

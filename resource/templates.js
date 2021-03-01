@@ -1,3 +1,4 @@
+const config = require('../config.json');
 const qs = require('querystring');
 const rooms = require('../data/rooms.js');
 const users = require('../data/users.js');
@@ -59,7 +60,13 @@ function room(session, query){
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="./room/script.js" sesId=${session.sesId} roomName="${roomName}" defer></script>
+
+        <script src="./room/script.js" 
+        wsUrl=${config.WS_URL} 
+        sesId=${session.sesId} 
+        roomName="${roomName}" 
+        defer></script>
+        
         <link rel="stylesheet" href="./room/styles.css">
         <title>Room: ${roomName}</title>
     </head>

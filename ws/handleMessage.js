@@ -7,8 +7,7 @@ const broadcast = require('./out.js').broadcast;
 
 function handleSetup(clientSock, pMsg){
     const username = sessions.find(ses => ses.sesId == pMsg[1]).username;
-    const room = rooms.find(room => pMsg[2] == room.roomName);
-    if(username && room){
+    if(username){
         clientList.push({ username, sock: clientSock, inRoom: pMsg[2] });
         const clientFound = clientList[clientList.length - 1];
         broadcast(username + ' has joined the room.', clientFound, 'broadcast');
