@@ -14,5 +14,5 @@
     "start": "node main.js"
   },
   "author": "3k0cr",
-  "license": "ISC"
+  "license": "MIT"
 }
