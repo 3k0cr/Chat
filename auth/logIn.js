@@ -26,6 +26,6 @@ module.exports = function(req, res){
             console.error(err);
             res.writeHead(500);
             res.end();
-        })
+        });
 
 }
