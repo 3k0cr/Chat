@@ -61,10 +61,10 @@ function room(session, query){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="./room/script.js" sesId=${session.sesId} roomName=${roomName.split(' ').join('%20')} defer></script>
         <link rel="stylesheet" href="./room/styles.css">
-        <title>Room ${roomName}</title>
+        <title>Room: ${roomName}</title>
     </head>
     <body>
-        <h1>Room ${roomName}</h1>
+        <h1>Room: ${roomName}</h1>
         <h4>Owner: ${roomFound.owner}</h4>
         <textarea id="board" rows=10 cols=30 readonly></textarea>
         <br>
@@ -93,7 +93,7 @@ function room(session, query){
         <title>Does Not Exist</title>
     </head>
     <body>
-        <span>Room ${roomName} does not exist.</span>
+        <span>The room ${roomName} does not exist.</span>
     </body>
     </html>
     

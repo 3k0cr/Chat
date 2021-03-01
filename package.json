@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
-  "directories": {
-    "test": "tests"
-  },
   "dependencies": {
     "node-cookie": "^2.1.2",
     "uuid": "^8.3.2",
@@ -14,8 +11,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node main.js"
   },
-  "author": "",
+  "author": "3k0cr",
   "license": "ISC"
 }

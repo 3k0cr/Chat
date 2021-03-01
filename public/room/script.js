@@ -7,7 +7,7 @@ const message = document.getElementById('msg');
 const sendBtn = document.getElementById('send-btn');
 const usersIn = document.querySelector('#users-in ul');
 
-console.log('%c Try not to refresh the browser until we implement message history.', 
+console.log('%c Try not to refresh the browser until message history is implemented.', 
     'background-color: black; color: white');
 
 ws.onopen = function(e){
@@ -16,6 +16,13 @@ ws.onopen = function(e){
 
 sendBtn.addEventListener('click', () => {
     ws.send(JSON.stringify([ 'message', message.value ]));
+    message.value = '';
+});
+
+document.addEventListener('keydown', e => {
+    if(e.code == 'Enter'){
+        sendBtn.click();
+    }
 });
 
 ws.onmessage = function(msg){
