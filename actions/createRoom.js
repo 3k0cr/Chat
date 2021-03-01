@@ -24,7 +24,7 @@ module.exports = function(req, res){
                     res.writeHead(409, { "Content-Type": "text/plain" });
                     res.end('Room name already exists.');
                 } else {
-                    rooms.push({ roomName, owner: session.username, usersIn: [] });
+                    rooms.push({ roomName, owner: session.username });
                     owner.rooms.push({ roomName });
                     res.writeHead(200, { "Content-Type": "text/plain" });
                     res.end('You have successfully registered the room ' + roomName + '.');

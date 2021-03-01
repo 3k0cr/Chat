@@ -103,5 +103,5 @@ function room(session, query){
 
 module.exports = function(page, session, query){
     if(page == 'home') return home(session);
-    if(page == 'room') return room(session, query);
+    else if(page == 'room') return room(session, query);
 }
