@@ -11,3 +11,5 @@ I have yet to give it a proper name.
 1. Install [Node.js](https://nodejs.org).
 2. Clone or download the repository.
 3. Run 'start.bat'.
+
+You can modify the server to your liking by editing 'config.json'.
