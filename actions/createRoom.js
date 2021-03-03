@@ -19,15 +19,15 @@ module.exports = function(req, res){
 
                 if(owner.rooms.length >= 3){
                     res.writeHead(409);
-                    res.end('You can not own more than 3 rooms.');
+                    res.end('0');
                 } else if(roomExists){
                     res.writeHead(409, { "Content-Type": "text/plain" });
-                    res.end('Room name already exists.');
+                    res.end('1');
                 } else {
                     rooms.push({ roomName, owner: session.username });
                     owner.rooms.push({ roomName });
                     res.writeHead(200, { "Content-Type": "text/plain" });
-                    res.end('You have successfully registered the room ' + roomName + '.');
+                    res.end('2');
                 }
 
             })
@@ -36,8 +36,8 @@ module.exports = function(req, res){
             });
 
     } else {
-        res.writeHead(401);
-        res.end();
+        res.writeHead(401, { "Content-Type": "text/plain" });
+        res.end('You are not authorized to complete this request.');
     }
 
 }

@@ -16,10 +16,21 @@ document.getElementById('log-in').addEventListener('click', () => {
         })
     })
     .then(res => {
-        if(res.status == 200) window.location.href = '/home';
-        else if(res.status == 409) status.innerText = 'Incorrect username or password.';
-        if(!res.ok){
-            throw Error(res.statusText);
+        return res.text();
+    })
+    .then(msg => {
+        switch(msg){
+            case '0': {
+                window.location.href = '/home';
+                break;
+            }
+            case '1': {
+                status.innerText = 'Incorrect username or password.';
+                break;
+            }
+            default: {
+                throw Error(msg);
+            }
         }
     })
     .catch(err => {

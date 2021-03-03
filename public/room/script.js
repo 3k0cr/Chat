@@ -1,7 +1,7 @@
 const sesId = document.currentScript.getAttribute('sesId');
 const roomName = document.currentScript.getAttribute('roomName');
-const WS_URL = document.currentScript.getAttribute('wsUrl');
-const ws = new WebSocket(WS_URL);
+const WS_PREFERRED_PORT = document.currentScript.getAttribute('wsPort');
+const ws = new WebSocket(`ws://${window.location.hostname}:${WS_PREFERRED_PORT}`);
 
 const board = document.getElementById('board');
 const message = document.getElementById('msg');

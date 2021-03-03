@@ -16,10 +16,21 @@ document.getElementById('sign-up').addEventListener('click', () => {
         })
     })
     .then(res => {
-        if(res.status == 200) status.innerText = 'Successfully signed up.';
-        else if(res.status == 409) status.innerText = 'Someone with this username already exists.';
-        if(!res.ok){
-            throw Error(res.statusText);
+        return res.text();
+    })
+    .then(msg => {
+        switch(msg){
+            case '0': {
+                status.innerText = 'Someone with this username already exists.';
+                break;
+            }
+            case '1': {
+                status.innerText = 'Successfully signed up.';
+                break;
+            }
+            default: {
+                throw Error(msg);
+            }
         }
     })
     .catch(err => {

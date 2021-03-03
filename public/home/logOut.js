@@ -3,8 +3,18 @@ document.getElementById('log-out').addEventListener('click', () => {
         method: 'DELETE'
     })
     .then(res => {
-        if(res.status == 200) window.location.href = '/logIn';
-        else throw Error(res.statusText);
+        return res.text();
+    })
+    .then(msg => {
+        switch(msg){
+            case '0': {
+                window.location.href = './logIn';
+                break;
+            }
+            default: {
+                throw Error(msg);
+            }
+        }
     })
     .catch(err => {
         console.error(err);

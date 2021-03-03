@@ -24,14 +24,26 @@ document.getElementById('create-room').addEventListener('click', () => {
         })
     })
     .then(res => {
-        if(res.status == 200) return res.text();
-        else if(res.status == 409) return res.text();
-        if(!res.ok){
-            throw Error(res.statusText);
-        }
+        return res.text();
     })
     .then(msg => {
-        status.innerText = msg;
+        switch(msg){
+            case '0': {
+                status.innerText = 'You can not own more than 3 rooms';
+                break;
+            }
+            case '1': {
+                status.innerText = 'Chosen room already exists.';
+                break;
+            }
+            case '2': {
+                window.location.href = '/home';
+                break;
+            }
+            default: {
+                throw Error(msg);
+            }
+        }
     })
     .catch(err => {
         console.error(err);

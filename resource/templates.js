@@ -15,7 +15,7 @@ function home(session){
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
+        <title>Home - Chat Application</title>
         <script src="./home/logOut.js" defer></script>
         
         <script src="./home/script.js" 
@@ -47,6 +47,7 @@ function home(session){
 }
 
 function room(session, query){
+    
     const roomName = qs.parse(query).name;
     const roomFound = rooms.find(room => roomName == room.roomName);
     
@@ -62,16 +63,16 @@ function room(session, query){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <script src="./room/script.js" 
-        wsUrl=${config.WS_URL} 
+        wsPort=${config.WS_PREFERRED_PORT} 
         sesId=${session.sesId} 
         roomName="${roomName}" 
         defer></script>
         
         <link rel="stylesheet" href="./room/styles.css">
-        <title>Room: ${roomName}</title>
+        <title>${roomName} - Chat Application</title>
     </head>
     <body>
-        <h1>Room: ${roomName}</h1>
+        <h1>${roomName}</h1>
         <h4>Owner: ${roomFound.owner}</h4>
         <textarea id="board" rows=10 cols=30 readonly></textarea>
         <br>
@@ -100,7 +101,7 @@ function room(session, query){
         <title>Does Not Exist</title>
     </head>
     <body>
-        <span>The room ${roomName} does not exist.</span>
+        <span>${roomName} does not exist.</span>
     </body>
     </html>
     

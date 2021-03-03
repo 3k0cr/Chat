@@ -7,23 +7,21 @@ module.exports = function(req, res){
             const parsedData = JSON.parse(data);
             const sameUsername = users.find(user => user.username == parsedData.username);
             if(sameUsername){
-                res.writeHead(409);
-                res.end();
+                res.writeHead(409, { "Content-Type": "text/plain" });
+                res.end('0');
             } else {
                 users.push({
                     username: parsedData.username,
                     password: parsedData.password,
-                    rooms: [
-                        
-                    ]
+                    rooms: []
                 });
-                res.writeHead(200);
-                res.end();
+                res.writeHead(200, { "Content-Type": "text/plain" });
+                res.end('1');
             }
         })
         .catch(err => {
             console.error(err);
-            res.writeHead(500);
-            res.end();
+            res.writeHead(500, { "Content-Type": "text/plain" });
+            res.end('Internal server error.');
         });
 }

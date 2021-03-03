@@ -10,16 +10,17 @@ module.exports = function(req, res){
         if(index != -1){
             sessions.splice(index, 1)
             res.writeHead(200, {
-                "Set-Cookie": "sesId="
+                "Set-Cookie": "sesId=",
+                "Content-Type": "text/plain"
             });
-            res.end();
+            res.end('0');
         } else {
-            res.writeHead(500);
-            res.end();
+            res.writeHead(500, { "Content-Type": "text/plain" });
+            res.end('Internal server error.');
         }
         
     } else {
-        res.writeHead(401);
-        res.end();
+        res.writeHead(401, { "Content-Type": "text/plain" });
+        res.end('You are not authorized to complete this request.');
     }
 }

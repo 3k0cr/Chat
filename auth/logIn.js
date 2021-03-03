@@ -13,19 +13,20 @@ module.exports = function(req, res){
 
                 const sesInfo = createSession(parsedData.username);
                 res.writeHead(200, {
-                    "Set-Cookie": `sesId=${sesInfo.sesId}; HttpOnly; SameSite=Strict`
+                    "Set-Cookie": `sesId=${sesInfo.sesId}; HttpOnly; SameSite=Strict`,
+                    "Content-Type": "text/plain"
                 });
-                res.end();
+                res.end('0');
 
             } else {
-                res.writeHead(409);
-                res.end();
+                res.writeHead(409, { "Content-Type": "text/plain" });
+                res.end('1');
             }
         })
         .catch(err => {
             console.error(err);
-            res.writeHead(500);
-            res.end();
+            res.writeHead(500, { "Content-Type": "text/plain" });
+            res.end('Internal server error.');
         });
 
 }
