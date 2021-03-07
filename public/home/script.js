@@ -29,7 +29,7 @@ document.getElementById('create-room').addEventListener('click', () => {
     .then(msg => {
         switch(msg){
             case '0': {
-                status.innerText = 'You can not own more than 3 rooms';
+                status.innerText = 'You can not own more than 3 rooms.';
                 break;
             }
             case '1': {

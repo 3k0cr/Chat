@@ -8,7 +8,7 @@ document.getElementById('log-out').addEventListener('click', () => {
     .then(msg => {
         switch(msg){
             case '0': {
-                window.location.href = './logIn';
+                window.location.href = '/logIn';
                 break;
             }
             default: {

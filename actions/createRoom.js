@@ -18,7 +18,7 @@ module.exports = function(req, res){
                 const roomExists = rooms.find(room => roomName == room.roomName);
 
                 if(owner.rooms.length >= 3){
-                    res.writeHead(409);
+                    res.writeHead(409, { "Content-Type": "text/plain" });
                     res.end('0');
                 } else if(roomExists){
                     res.writeHead(409, { "Content-Type": "text/plain" });

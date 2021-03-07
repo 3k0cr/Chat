@@ -10,10 +10,12 @@ module.exports = function(username){
     }
 
     sessions.push(session);
+
+    // TODO: Emit an event along with removal.
     setTimeout(() => {
         const index = sessions.findIndex(session => sesId == session.sesId);
         if(index != -1){
-            console.log('Deleted ' + sessions[index].username + "'s" + ' session.');
+            console.log('MESSAGE: Deleted ' + sessions[index].username + "'s" + ' session.');
             sessions.splice(index, 1);
         }
     }, EXPIRES_IN * 60000);
