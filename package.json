@@ -13,6 +13,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node main.js"
   },
-  "author": "3k0cr",
+  "author": "dm",
   "license": "MIT"
 }
